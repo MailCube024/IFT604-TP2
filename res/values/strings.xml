@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">IFT604_tp2</string>
+    <string name="app_name">HockeyLive</string>
+    <string name="GameInfoTitle">Game Description</string>
+    <string name="Refresh">Refresh</string>
+    <string name="BetButton">Bet on</string>
+    <string name="HostOption">Host</string>
+    <string name="VisitorOption">Visitor</string>
+    <string name="PenaltiesLabel">Penalties</string>
+    <string name="GoalsLabel">Goals</string>
+    <string name="VisitorGoalLabel">Visitor:</string>
+    <string name="HostGoalLabel">Host:</string>
+    <string name="TimerLabel">Timer:</string>
+    <string name="PeriodLabel">Period:</string>
 </resources>

@@ -2,12 +2,14 @@ package com.example.IFT604_tp2;
 
 import HockeyLive.Common.Models.Game;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.example.IFT604_tp2.GameInfo.GameInfoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ public class MatchListActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.game_list);
 
         //Start le service.
 
@@ -52,40 +54,15 @@ public class MatchListActivity extends Activity {
                 //Ouverture de la nouvelle activité avec GameID de choisi.
                 Game selectedGame = (Game) parent.getItemAtPosition(position);
 
-                /**Test for toast.**/
-                Toast toast = Toast.makeText(parent.getContext(), String.valueOf(selectedGame.getGameID()), Toast.LENGTH_SHORT);
-                toast.show();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("SelectedGame", selectedGame);
+
+                Intent intent = new Intent(getBaseContext(), GameInfoActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
 
-    @Override
-    public void onStart(){
 
-    }
-
-    @Override
-    public void onRestart(){
-
-    }
-
-    @Override
-    public void onResume(){
-
-    }
-
-    @Override
-    public void onPause(){
-
-    }
-
-    @Override
-    public void onStop(){
-
-    }
-
-    @Override
-    public void onDestroy(){
-
-    }
 }

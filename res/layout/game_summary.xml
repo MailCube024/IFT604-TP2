@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+	<TableLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+		<TextView style="@style/TitleLabel"
+		          android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:id="@+id/lblGameInfoTitle"
+		          android:text="Chicago vs. Montreal"
+				/>
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<GridLayout android:orientation="horizontal" android:layout_height="wrap_content"
+		            android:layout_width="fill_parent" android:columnCount="5">
+			<TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+			          android:text="@string/PeriodLabel"
+			          android:layout_column="0" style="@style/Title2Label"/>
+			<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					style="@style/Title2Label"
+					android:text="1"
+					android:id="@+id/lblPeriod" android:layout_column="1"/>
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="match_parent"
+			          style="@style/Title2Label"
+			          android:text="@string/TimerLabel"
+			          android:layout_column="3"/>
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="match_parent"
+			          android:textAppearance="?android:attr/textAppearanceSmall"
+			          style="@style/Title2Label"
+			          android:text="20:00"
+			          android:id="@+id/lblTimer"
+			          android:layout_column="4"/>
+		</GridLayout>
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<GridLayout android:orientation="horizontal" android:layout_height="wrap_content"
+		            android:layout_width="fill_parent" android:columnCount="3">
+			<TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+			          android:text="Host"
+			          android:id="@+id/lblHostname"
+			          style="@style/Title2Label"
+			          android:layout_column="0"/>
+
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="match_parent"
+			          android:text="Visitor"
+			          style="@style/Title2Label"
+			          android:id="@+id/lblVisitorName"
+			          android:layout_column="2"/>
+		</GridLayout>
+
+		<GridLayout android:orientation="horizontal" android:layout_height="wrap_content"
+		            android:layout_width="fill_parent" android:columnCount="5">
+			<TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+			          android:text="@string/HostGoalLabel"
+			          android:layout_column="0"/>
+			<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:text="Goal"
+					android:id="@+id/lblHostGoals" android:layout_column="1"/>
+
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="match_parent"
+			          android:text="@string/VisitorGoalLabel"
+			          android:layout_column="3"/>
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="match_parent"
+			          android:textAppearance="?android:attr/textAppearanceSmall"
+			          android:text="Goal"
+			          android:id="@+id/lblVisitorGoals"
+			          android:layout_column="4"/>
+		</GridLayout>
+
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+			<LinearLayout android:orientation="vertical"
+			              android:layout_height="match_parent"
+			              android:layout_width="0dp"
+			              android:layout_weight="0.5">
+				<TextView android:layout_width="fill_parent"
+				          android:layout_height="wrap_content"
+				          android:text="@string/GoalsLabel" android:gravity="center"/>
+
+				<View android:layout_height="1dp" android:layout_width="match_parent"
+				      android:background="@android:color/darker_gray"/>
+
+				<ListView android:layout_width="match_parent" android:layout_height="match_parent"
+				          android:id="@+id/lstHostGoals"/>
+			</LinearLayout>
+			<LinearLayout android:orientation="vertical"
+			              android:layout_height="match_parent"
+			              android:layout_width="0dp"
+			              android:layout_weight="0.5">
+				<TextView android:layout_width="fill_parent"
+				          android:layout_height="wrap_content"
+				          android:text="@string/GoalsLabel" android:gravity="center"/>
+
+				<View android:layout_height="1dp" android:layout_width="match_parent"
+				      android:background="@android:color/darker_gray"/>
+
+				<ListView android:layout_width="match_parent" android:layout_height="wrap_content"
+				          android:id="@+id/lstVisitorGoals"/>
+			</LinearLayout>
+		</LinearLayout>
+
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+			<LinearLayout android:orientation="vertical"
+			              android:layout_height="match_parent"
+			              android:layout_width="0dp"
+			              android:layout_weight="0.5">
+				<TextView android:layout_width="fill_parent"
+				          android:layout_height="wrap_content"
+				          android:text="@string/PenaltiesLabel" android:gravity="center"/>
+
+				<View android:layout_height="1dp" android:layout_width="match_parent"
+				      android:background="@android:color/darker_gray"/>
+
+				<ListView android:layout_width="match_parent" android:layout_height="match_parent"
+				          android:id="@+id/lstHostPenalties"/>
+			</LinearLayout>
+			<LinearLayout android:orientation="vertical"
+			              android:layout_height="match_parent"
+			              android:layout_width="0dp"
+			              android:layout_weight="0.5">
+				<TextView android:layout_width="fill_parent"
+				          android:layout_height="wrap_content"
+				          android:text="@string/PenaltiesLabel" android:gravity="center"/>
+
+				<View android:layout_height="1dp" android:layout_width="match_parent"
+				      android:background="@android:color/darker_gray"/>
+
+				<ListView android:layout_width="match_parent" android:layout_height="wrap_content"
+				          android:id="@+id/lstVisitorPenalties"/>
+			</LinearLayout>
+		</LinearLayout>
+
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<Button android:id="@+id/btnRefresh" android:text="@string/Refresh" android:layout_height="wrap_content"
+		        android:layout_width="match_parent" android:onClick="onRefreshButtonClicked"/>
+
+		<View android:layout_height="1dp" android:layout_width="match_parent"
+		      android:background="@android:color/darker_gray"/>
+
+		<LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
+		              android:layout_height="match_parent">
+			<RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
+			            android:orientation="vertical">
+				<RadioButton android:id="@+id/optHost" android:layout_width="wrap_content"
+				             android:layout_height="match_parent" android:text="@string/HostOption"
+				             android:checked="true"
+				             android:onClick="onRadioButtonClicked"/>
+
+				<RadioButton android:id="@+id/optVisitor" android:layout_width="wrap_content"
+				             android:layout_height="match_parent" android:text="@string/VisitorOption"
+				             android:onClick="onRadioButtonClicked"/>
+			</RadioGroup>
+			<Button android:id="@+id/btnBet" android:text="@string/BetButton" android:layout_height="match_parent"
+			        android:layout_width="fill_parent" android:onClick="onBetButtonClicked"/>
+		</LinearLayout>
+	</TableLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package com.example.IFT604_tp2.GameInfo;
 
+import HockeyLive.Client.Communication.ClientSocket;
 import HockeyLive.Common.Models.Game;
 import HockeyLive.Common.Models.Goal;
 import HockeyLive.Common.Models.Penalty;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.IFT604_tp2.IntentKeys;
 import com.example.IFT604_tp2.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +38,12 @@ public class GameInfoActivity extends Activity {
 
         currentIntent = getIntent();
         Bundle bundle = currentIntent.getExtras();
+
+        try {
+            ClientSocket socket = new ClientSocket(1010);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         if (bundle != null)
             game = (Game) bundle.getSerializable(IntentKeys.SELECTED_GAME);

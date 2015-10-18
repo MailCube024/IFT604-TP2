@@ -32,16 +32,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.IFT604_tp2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a03ba737-38c2-490a-95cf-e261a2abfe7d" name="Default" comment="First Build. Added Configuration for Version Control Settings.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.apk" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R.class" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java" afterPath="$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a03ba737-38c2-490a-95cf-e261a2abfe7d" name="Default" comment="First Build. Added Configuration for Version Control Settings." />
     <ignored path="IFT604_tp2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,11 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MatchListActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatchListActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13222079">
-              <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -597,7 +588,7 @@
       <workItem from="1445108319881" duration="574000" />
       <workItem from="1445110372433" duration="4563000" />
       <workItem from="1445114956785" duration="4181000" />
-      <workItem from="1445121609821" duration="4942000" />
+      <workItem from="1445121609821" duration="5874000" />
     </task>
     <task id="LOCAL-00001" summary="First Build. Added Configuration for Version Control Settings.">
       <created>1445103637252</created>
@@ -609,7 +600,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18162000" />
+    <option name="totallyTimeSpent" value="19094000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,7 +612,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="916" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -826,6 +817,16 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -835,16 +836,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13222079">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
   </component>

@@ -23,11 +23,11 @@ import java.util.List;
 public class GameInfoActivity extends Activity {
     private Intent currentIntent;
     private Game game;
+
     private ArrayAdapter<Penalty> hostPenaltyAdapter;
     private ArrayAdapter<Penalty> visitorPenaltyAdapter;
     private ArrayAdapter<Goal> hostGoalAdapter;
     private ArrayAdapter<Goal> visitorGoalAdapter;
-
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -36,8 +36,9 @@ public class GameInfoActivity extends Activity {
 
         currentIntent = getIntent();
         Bundle bundle = currentIntent.getExtras();
+
         if (bundle != null)
-            game = (Game) bundle.getSerializable(IntentKeys.GAME_ID);
+            game = (Game) bundle.getSerializable(IntentKeys.SELECTED_GAME);
         else
             game = new Game(0, "Chicago", "Montreal");
 

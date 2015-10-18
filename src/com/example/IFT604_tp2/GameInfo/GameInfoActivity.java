@@ -32,4 +32,8 @@ public class GameInfoActivity extends Activity {
             }
         }
     }
+
+    public void onRefreshButtonClicked(View view) {
+
+    }
 }

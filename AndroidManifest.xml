@@ -15,7 +15,9 @@
 		<activity android:name=".GameInfo.GameInfoActivity" android:label="Game Info">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MatchListActivity"/>
 		</activity>
-
+		<service android:name=".CommunicationService"/>
 	</application>
 
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>

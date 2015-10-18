@@ -43,6 +43,7 @@ public class Client {
 
     private ClientSocket socket = null;
     private InetAddress localhost = null;
+    private InetAddress serverAddress;
 
     private Thread receiver;
 
@@ -51,6 +52,15 @@ public class Client {
         gameListUpdateListeners = new ArrayList<>();
         betConfirmationListeners = new ArrayList<>();
         betUpdateListeners = new ArrayList<>();
+        serverAddress = GetLocalhost();
+    }
+
+    public Client(InetAddress address) {
+        gameInfoUpdateListeners = new ArrayList<>();
+        gameListUpdateListeners = new ArrayList<>();
+        betConfirmationListeners = new ArrayList<>();
+        betUpdateListeners = new ArrayList<>();
+        serverAddress = address;
     }
 
     private ClientSocket GetSocket() {
@@ -79,7 +89,7 @@ public class Client {
 
     public void RequestGameList() {
         ClientMessage message = new ClientMessage(ClientMessageType.GetMatches, 1,
-                GetLocalhost(), Constants.SERVER_COMM_PORT,
+                serverAddress, Constants.SERVER_COMM_PORT,
                 GetLocalhost(), Constants.CLIENT_COMM_PORT,
                 null);
 
@@ -88,7 +98,7 @@ public class Client {
 
     public void RequestGameInfo(Integer gameID) {
         ClientMessage message = new ClientMessage(ClientMessageType.GetMatchInfo, 2,
-                GetLocalhost(), Constants.SERVER_COMM_PORT,
+                serverAddress, Constants.SERVER_COMM_PORT,
                 GetLocalhost(), Constants.CLIENT_COMM_PORT,
                 gameID);
 
@@ -97,7 +107,7 @@ public class Client {
 
     public void SendBet(Bet bet) {
         ClientMessage message = new ClientMessage(ClientMessageType.PlaceBet, 3,
-                GetLocalhost(), Constants.SERVER_COMM_PORT,
+                serverAddress, Constants.SERVER_COMM_PORT,
                 GetLocalhost(), Constants.CLIENT_COMM_PORT,
                 bet);
 
@@ -109,7 +119,7 @@ public class Client {
             l.BetUpdate(bet);
 
         ClientMessage message = new ClientMessage(ClientMessageType.AckNotification, 4,
-                GetLocalhost(), Constants.SERVER_COMM_PORT,
+                serverAddress, Constants.SERVER_COMM_PORT,
                 GetLocalhost(), Constants.CLIENT_COMM_PORT,
                 bet);
 

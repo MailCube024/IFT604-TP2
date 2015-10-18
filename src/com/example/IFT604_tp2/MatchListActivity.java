@@ -16,7 +16,6 @@ public class MatchListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-//        HockeyLive.Common.HockeyLive.Common.Models.Game game = new HockeyLive.Common.HockeyLive.Common.Models.Game();
         Game game = new Game(0, "", "");
         ListView matchList = (ListView) findViewById(R.id.matchList);
 

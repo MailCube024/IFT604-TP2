@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">IFT604_tp2</string>
+    <string name="app_name">HockeyLive</string>
+    <string name="GameInfoTitle">Game Description</string>
+    <string name="Refresh">Refresh</string>
 </resources>

@@ -22,8 +22,12 @@ public class ClientSocket {
 
     public ClientSocket(int port) throws IOException {
         epSocket = new DatagramSocket(port);
-        tReceive = new Thread(() -> {
-            Receive();
+        tReceive = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Receive();
+
+            }
         });
         tReceive.start();
     }

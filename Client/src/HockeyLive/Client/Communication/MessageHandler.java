@@ -26,7 +26,12 @@ public class MessageHandler implements Runnable {
         while (true) {
             try {
                 ServerMessage message = socket.GetMessage();
-                new Thread(() -> InformClient(message.getType(), message.getData())).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        InformClient(message.getType(), message.getData());
+                    }
+                }).start();
 
             } catch (InterruptedException e) {
                 System.out.println("MessageHandler: Interrupted while getting message - Stopping thread");

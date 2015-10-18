@@ -12,6 +12,7 @@
 *.class
 
 # Generated files
+/.idea
 bin/
 gen/
 

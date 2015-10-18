@@ -1,19 +1,27 @@
 package com.example.IFT604_tp2.GameInfo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import com.example.IFT604_tp2.IntentKeys;
 import com.example.IFT604_tp2.R;
 
 /**
  * Created by Michaël on 10/17/2015.
  */
 public class GameInfoActivity extends Activity {
+    private Intent currentIntent;
+    private int gameID;
+
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.match_summary);
+
+        currentIntent = getIntent();
+        gameID = currentIntent.getIntExtra(IntentKeys.GAME_ID, 0);
     }
 
     public void onRadioButtonClicked(View view) {

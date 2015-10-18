@@ -28,15 +28,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a03ba737-38c2-490a-95cf-e261a2abfe7d" name="Default" comment="Added TP1 JAR to project folder.&#10;Added jar to library">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.apk" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.unaligned.apk" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/IFT604_tp2.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$id.class" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$layout.class" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$string.class" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R.class" afterPath="$PROJECT_DIR$/out/production/IFT604_tp2/com/example/IFT604_tp2/R.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/IFT604_tp2/IntentKeys.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java" afterPath="$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/match_summary.xml" afterPath="$PROJECT_DIR$/res/layout/match_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="IFT604_tp2.iws" />
@@ -61,14 +55,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="match_summary.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="match_summary.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/match_summary.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.8004751">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state vertical-scroll-proportion="-108.965515">
+              <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
               <folding>
                 <element signature="e#972#993#0" expanded="true" />
                 <element signature="e#1502#1522#0" expanded="true" />
@@ -149,14 +143,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889">
-              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.13777268">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
               <folding>
-                <element signature="e#875#893#0" expanded="true" />
-                <element signature="e#1024#1042#0" expanded="true" />
+                <element signature="e#290#308#0" expanded="true" />
+                <element signature="e#419#437#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,10 +160,20 @@
         <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="38" />
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntentKeys.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/IntentKeys.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="38" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -179,8 +183,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="valueResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -198,9 +202,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/match_summary.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/IFT604_tp2/IntentKeys.java" />
+        <option value="$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -881,8 +886,8 @@
     </configuration>
     <configuration default="false" name="tp2" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="IFT604_tp2" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
+      <option name="ACTIVITY_CLASS" value="com.example.IFT604_tp2.GameInfo.GameInfoActivity" />
+      <option name="MODE" value="specific_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
@@ -917,7 +922,7 @@
       <workItem from="1445050337940" duration="614000" />
       <workItem from="1445103026944" duration="2889000" />
       <workItem from="1445108319881" duration="5930000" />
-      <workItem from="1445130800783" duration="10290000" />
+      <workItem from="1445130800783" duration="10589000" />
     </task>
     <task id="LOCAL-00001" summary="First Build. Added Configuration for Version Control Settings.">
       <created>1445103637252</created>
@@ -949,11 +954,17 @@
       <option name="project" value="LOCAL" />
       <updated>1445180008549</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Correct texts and mvoed string to ressources.">
+      <created>1445180348220</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1445180348220</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20122000" />
+    <option name="totallyTimeSpent" value="20421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -967,7 +978,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29264393" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29264393" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1007,7 +1018,8 @@
     <MESSAGE value="Implemented UI for Game Info with Bet Button" />
     <MESSAGE value="Added Minimum layout height." />
     <MESSAGE value="Added radio button click event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added radio button click event" />
+    <MESSAGE value="Correct texts and mvoed string to ressources." />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct texts and mvoed string to ressources." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1105,8 +1117,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
-            <element signature="e#875#893#0" expanded="true" />
-            <element signature="e#1024#1042#0" expanded="true" />
+            <element signature="e#290#308#0" expanded="true" />
+            <element signature="e#419#437#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1161,8 +1173,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#875#893#0" expanded="true" />
-            <element signature="e#1024#1042#0" expanded="true" />
+            <element signature="e#290#308#0" expanded="true" />
+            <element signature="e#419#437#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1265,31 +1277,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="e#875#893#0" expanded="true" />
-            <element signature="e#1024#1042#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/MatchListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1301,8 +1292,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.8004751">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        <state vertical-scroll-proportion="-108.965515">
+          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
           <folding>
             <element signature="e#972#993#0" expanded="true" />
             <element signature="e#1502#1522#0" expanded="true" />
@@ -1316,6 +1307,35 @@
             <element signature="e#8004#8024#0" expanded="true" />
             <element signature="e#8273#8296#0" expanded="true" />
             <element signature="e#8421#8440#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/IntentKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/IFT604_tp2/GameInfo/GameInfoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13777268">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding>
+            <element signature="e#290#308#0" expanded="true" />
+            <element signature="e#419#437#0" expanded="true" />
           </folding>
         </state>
       </provider>

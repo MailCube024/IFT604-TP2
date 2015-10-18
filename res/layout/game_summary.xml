@@ -176,7 +176,7 @@
 				             android:onClick="onRadioButtonClicked"/>
 			</RadioGroup>
 			<Button android:id="@+id/btnBet" android:text="@string/BetButton" android:layout_height="match_parent"
-			        android:layout_width="fill_parent"/>
+			        android:layout_width="fill_parent" android:onClick="onBetButtonClicked"/>
 		</LinearLayout>
 	</TableLayout>
 </ScrollView>

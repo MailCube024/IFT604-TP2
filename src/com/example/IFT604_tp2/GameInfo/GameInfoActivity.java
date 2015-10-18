@@ -18,7 +18,7 @@ public class GameInfoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        setContentView(R.layout.match_summary);
+        setContentView(R.layout.game_summary);
 
         currentIntent = getIntent();
         gameID = currentIntent.getIntExtra(IntentKeys.GAME_ID, 0);
@@ -42,6 +42,10 @@ public class GameInfoActivity extends Activity {
     }
 
     public void onRefreshButtonClicked(View view) {
+
+    }
+
+    public void onBetButtonClicked(View view) {
 
     }
 }

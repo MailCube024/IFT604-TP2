@@ -14,7 +14,7 @@ public class MatchListActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.game_list);
 
         Game game = new Game(0, "", "");
         ListView matchList = (ListView) findViewById(R.id.matchList);
@@ -27,7 +27,7 @@ public class MatchListActivity extends Activity {
                 "Match 5",
         };
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listTest);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listTest);
 
         matchList.setAdapter(adapter);
     }

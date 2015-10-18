@@ -1,10 +1,12 @@
 package com.example.IFT604_tp2.GameInfo;
 
+import HockeyLive.Common.Models.Game;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 import com.example.IFT604_tp2.IntentKeys;
 import com.example.IFT604_tp2.R;
 
@@ -14,6 +16,7 @@ import com.example.IFT604_tp2.R;
 public class GameInfoActivity extends Activity {
     private Intent currentIntent;
     private int gameID;
+    private Game selectedGame;
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -21,7 +24,10 @@ public class GameInfoActivity extends Activity {
         setContentView(R.layout.game_summary);
 
         currentIntent = getIntent();
-        gameID = currentIntent.getIntExtra(IntentKeys.GAME_ID, 0);
+        Bundle bundle = currentIntent.getExtras();
+        selectedGame = (Game) bundle.getSerializable(IntentKeys.SELECTED_GAME);
+        Toast toast = Toast.makeText(this, selectedGame.toString(), Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void onRadioButtonClicked(View view) {

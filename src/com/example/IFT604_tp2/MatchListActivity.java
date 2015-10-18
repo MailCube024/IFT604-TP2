@@ -23,7 +23,12 @@ public class MatchListActivity extends HockeyActivity implements CommunicationSe
         GameListUpdateListener listener = new GameListUpdateListener() {
             @Override
             public void UpdateGameList(List<Game> games) {
-                setGameList(games);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setGameList(games);
+                    }
+                });
             }
         };
 

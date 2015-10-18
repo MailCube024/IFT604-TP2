@@ -25,8 +25,11 @@ public class ClientSocket {
         tReceive = new Thread(new Runnable() {
             @Override
             public void run() {
-                Receive();
-
+                try {
+                    Receive();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         tReceive.start();

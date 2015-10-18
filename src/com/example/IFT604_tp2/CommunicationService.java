@@ -37,12 +37,14 @@ public class CommunicationService extends Service {
 
     @Override
     public void onCreate() {
+        super.onCreate();
         Thread thread = new Thread(new Runnable(){
             @Override
             public void run() {
                 try {
                     InetAddress serverAddress = InetAddress.getByName("192.168.0.130");
                     client = new Client(serverAddress);
+                    client.Start();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -60,7 +62,9 @@ public class CommunicationService extends Service {
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
 
+        client.Close();
     }
 
     @Override

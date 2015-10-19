@@ -29,7 +29,12 @@ public class MessageHandler implements Runnable {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        InformClient(message.getType(), message.getData());
+                        try {
+                            InformClient(message.getType(), message.getData());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }).start();
 

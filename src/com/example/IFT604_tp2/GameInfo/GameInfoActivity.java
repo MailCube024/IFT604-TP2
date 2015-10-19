@@ -84,10 +84,10 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
     }
 
     private void InitializeAdapters() {
-        hostPenaltyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        hostGoalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        visitorPenaltyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        visitorGoalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
+        hostPenaltyAdapter = new ArrayAdapter<>(this, R.layout.left_aligned, new ArrayList<>());
+        hostGoalAdapter = new ArrayAdapter<>(this, R.layout.left_aligned, new ArrayList<>());
+        visitorPenaltyAdapter = new ArrayAdapter<>(this, R.layout.right_aligned, new ArrayList<>());
+        visitorGoalAdapter = new ArrayAdapter<>(this, R.layout.right_aligned, new ArrayList<>());
 
         ((ListView) findViewById(R.id.lstHostPenalties)).setAdapter(hostPenaltyAdapter);
         ((ListView) findViewById(R.id.lstHostGoals)).setAdapter(hostGoalAdapter);

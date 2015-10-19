@@ -89,7 +89,7 @@
 		      android:background="@android:color/darker_gray"/>
 
 		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
-		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="125dp">
 			<LinearLayout android:orientation="vertical"
 			              android:layout_height="match_parent"
 			              android:layout_width="0dp"
@@ -124,7 +124,7 @@
 		      android:background="@android:color/darker_gray"/>
 
 		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
-		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="125dp">
 			<LinearLayout android:orientation="vertical"
 			              android:layout_height="match_parent"
 			              android:layout_width="0dp"

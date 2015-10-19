@@ -1,8 +1,8 @@
 package com.example.IFT604_tp2.GameInfo;
 
-import HockeyLive.Client.Communication.ClientSocket;
+import HockeyLive.Client.Listeners.GameInfoUpdateListener;
 import HockeyLive.Common.Models.*;
-import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,15 +13,17 @@ import android.widget.TextView;
 import com.example.IFT604_tp2.CommunicationService;
 import com.example.IFT604_tp2.IntentKeys;
 import com.example.IFT604_tp2.R;
+import com.example.IFT604_tp2.Service.HockeyActivity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Michaël on 10/17/2015.
  */
-public class GameInfoActivity extends Activity implements CommunicationService.Callbacks {
+public class GameInfoActivity extends HockeyActivity implements CommunicationService.Callbacks {
+    private boolean spinnerShowing;
+    private ProgressDialog progress;
     private Intent currentIntent;
     private Game game;
 
@@ -29,6 +31,28 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
     private ArrayAdapter<Penalty> visitorPenaltyAdapter;
     private ArrayAdapter<Goal> hostGoalAdapter;
     private ArrayAdapter<Goal> visitorGoalAdapter;
+
+    //@Override
+    protected void onServiceConnected() {
+        GameInfoUpdateListener listener = new GameInfoUpdateListener() {
+            @Override
+            public void UpdateGameInfo(GameInfo info) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateGameInfo(info);
+                        if (spinnerShowing) {
+                            progress.dismiss();
+                            spinnerShowing = false;
+                        }
+                    }
+                });
+            }
+        };
+
+        boundService.AddGameInfoUpdateListener(listener);
+        boundService.RequestGameInfo(game.getGameID());
+    }
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -38,12 +62,6 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
         currentIntent = getIntent();
         Bundle bundle = currentIntent.getExtras();
 
-        try {
-            ClientSocket socket = new ClientSocket(1010);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         if (bundle != null)
             game = (Game) bundle.getSerializable(IntentKeys.SELECTED_GAME);
         else
@@ -51,6 +69,12 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
 
         InitializeGameDescription();
         InitializeAdapters();
+
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading game info");
+        progress.setMessage("Please wait...");
+        progress.show();
+        spinnerShowing = true;
     }
 
     private void InitializeGameDescription() {
@@ -66,9 +90,9 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
         visitorGoalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
 
         ((ListView) findViewById(R.id.lstHostPenalties)).setAdapter(hostPenaltyAdapter);
-        ((ListView) findViewById(R.id.lstHostGoals)).setAdapter(hostPenaltyAdapter);
+        ((ListView) findViewById(R.id.lstHostGoals)).setAdapter(hostGoalAdapter);
         ((ListView) findViewById(R.id.lstVisitorPenalties)).setAdapter(visitorPenaltyAdapter);
-        ((ListView) findViewById(R.id.lstVisitorGoals)).setAdapter(visitorPenaltyAdapter);
+        ((ListView) findViewById(R.id.lstVisitorGoals)).setAdapter(visitorGoalAdapter);
     }
 
     public void UpdatePenaltyList(List<Penalty> hostPenalties, List<Penalty> visitorPenalties) {
@@ -105,7 +129,7 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
     }
 
     public void onRefreshButtonClicked(View view) {
-
+        boundService.RequestGameInfo(game.getGameID());
     }
 
     public void onBetButtonClicked(View view) {
@@ -119,16 +143,23 @@ public class GameInfoActivity extends Activity implements CommunicationService.C
 
     @Override
     public void updateGameInfo(GameInfo info) {
+        ((TextView) findViewById(R.id.lblHostGoals)).setText(String.valueOf(info.getHostGoalsTotal()));
+        ((TextView) findViewById(R.id.lblVisitorGoals)).setText(String.valueOf(info.getVisitorGoalsTotal()));
 
+        ((TextView) findViewById(R.id.lblPeriod)).setText(String.valueOf(info.getPeriod()));
+        ((TextView) findViewById(R.id.lblTimer)).setText(info.getPeriodFormattedChronometer());
+
+        UpdateGoalList(info.getHostGoals(), info.getVisitorGoals());
+        UpdatePenaltyList(info.getHostPenalties(), info.getVisitorPenalties());
     }
 
     @Override
-    public void betuUpdate(Bet bet) {
-
+    public void betUpdate(Bet bet) {
+        //TODO: Add implementation
     }
 
     @Override
     public void betConfirmed(boolean state) {
-
+        //TODO: Add implementation
     }
 }

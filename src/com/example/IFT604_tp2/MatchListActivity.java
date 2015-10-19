@@ -76,9 +76,10 @@ public class MatchListActivity extends HockeyActivity implements CommunicationSe
     }
 
     @Override
-    public void betuUpdate(Bet bet) {
-        //Not implmenting callback
+    public void betUpdate(Bet bet) {
+
     }
+
 
     @Override
     public void betConfirmed(boolean state) {

@@ -1,6 +1,7 @@
 package com.example.IFT604_tp2;
 
 import HockeyLive.Client.Communication.Client;
+import HockeyLive.Client.Listeners.GameInfoUpdateListener;
 import HockeyLive.Client.Listeners.GameListUpdateListener;
 import HockeyLive.Common.Models.Bet;
 import HockeyLive.Common.Models.Game;
@@ -75,6 +76,10 @@ public class CommunicationService extends Service {
         client.AddGameListUpdateListener(listener);
     }
 
+    public void AddGameInfoUpdateListener(GameInfoUpdateListener listener) {
+        client.AddGameInfoUpdateListener(listener);
+    }
+
     public void SendBet(Bet bet) {
         //client.SendBet(bet);
     }
@@ -113,12 +118,31 @@ public class CommunicationService extends Service {
             activity.setGameList(listTest);
     }
 
+    public GameInfo GetGameInfo() {
+        return new GameInfo(1, 2);
+    }
+
+    public void RequestGameInfo(int gameID) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    client.RequestGameInfo(gameID);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+    }
+
     public interface Callbacks {
         void setGameList(List<Game> gameList);
 
         void updateGameInfo(GameInfo info);
 
-        void betuUpdate(Bet bet);
+        void betUpdate(Bet bet);
 
         void betConfirmed(boolean state);
     }

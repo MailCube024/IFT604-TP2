@@ -3,18 +3,21 @@ package com.example.IFT604_tp2;
 import HockeyLive.Client.Communication.Client;
 import HockeyLive.Client.Listeners.GameInfoUpdateListener;
 import HockeyLive.Client.Listeners.GameListUpdateListener;
-import HockeyLive.Common.Models.Bet;
-import HockeyLive.Common.Models.Game;
-import HockeyLive.Common.Models.GameInfo;
+import HockeyLive.Client.Listeners.GoalNotificationListener;
+import HockeyLive.Client.Listeners.PenaltyNotificationListener;
+import HockeyLive.Common.Models.*;
 import android.app.Activity;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.net.InetAddress;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,9 +36,30 @@ public class CommunicationService extends Service {
             @Override
             public void run() {
                 try {
-                    InetAddress serverAddress = InetAddress.getByName("192.168.56.2");
+                    InetAddress serverAddress = InetAddress.getByName("192.168.2.17");
                     client = new Client(serverAddress);
                     client.Start();
+
+                    PenaltyNotificationListener penaltyListener = new PenaltyNotificationListener() {
+                        @Override
+                        public void NewPenalty(Penalty penalty, Side side, Game game) {
+                            if(activity == null) {
+                                ShowPenalty(penalty, side, game);
+                            }
+                        }
+                    };
+
+                    GoalNotificationListener goalListener = new GoalNotificationListener() {
+                        @Override
+                        public void NewGoal(Goal goal, Side side, Game game) {
+                            if(activity == null) {
+                                ShowGoal(goal, side, game);
+                            }
+                        }
+                    };
+
+                    client.AddPenaltyNotificationListener(penaltyListener);
+                    client.AddGoalNotificationListener(goalListener);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -97,25 +121,6 @@ public class CommunicationService extends Service {
         });
 
         thread.start();
-
-        //GetGameList();
-    }
-
-    public void GetGameList() {
-        List<Game> listTest = new ArrayList<>();
-        listTest.add(new Game(1, "Montreal", "Ottawa"));
-        listTest.add(new Game(2, "New-York", "Pittsburg"));
-        listTest.add(new Game(3, "Vancouver", "Calgary"));
-        listTest.add(new Game(4, "St-Louis", "San-Jose"));
-        listTest.add(new Game(5, "Tampa-Bay", "Florida"));
-        listTest.add(new Game(6, "Nashville", "Columbus"));
-        listTest.add(new Game(7, "Toronto", "Detroit"));
-        listTest.add(new Game(8, "Edmonton", "Arizona"));
-        listTest.add(new Game(9, "Carolina", "New-York"));
-        listTest.add(new Game(10, "Buffalo", "Chicago"));
-
-        if (activity != null)
-            activity.setGameList(listTest);
     }
 
     public GameInfo GetGameInfo() {
@@ -135,6 +140,34 @@ public class CommunicationService extends Service {
         });
 
         thread.start();
+    }
+
+    public void ShowPenalty(Penalty penalty, Side side, Game game) {
+        String message = String.format("New Penalty for %s - %s",
+                side == Side.Host ? game.getHost() : game.getVisitor(),
+                penalty.getPenaltyHolder());
+
+        ShowToast(message);
+    }
+
+    public void ShowGoal(Goal goal, Side side, Game game) {
+        String message = String.format("New Goal for %s - %s",
+                side == Side.Host ? game.getHost() : game.getVisitor(),
+                goal.getGoalHolder());
+
+        ShowToast(message);
+    }
+
+    private void ShowToast(String message) {
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        handler.post(new Runnable() {
+
+            @Override
+            public void run() {
+                Toast.makeText(CommunicationService.this.getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public interface Callbacks {

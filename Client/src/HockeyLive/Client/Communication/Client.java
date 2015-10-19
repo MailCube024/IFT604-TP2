@@ -1,15 +1,10 @@
 package HockeyLive.Client.Communication;
 
-import HockeyLive.Client.Listeners.BetConfirmationListener;
-import HockeyLive.Client.Listeners.BetUpdateListener;
-import HockeyLive.Client.Listeners.GameInfoUpdateListener;
-import HockeyLive.Client.Listeners.GameListUpdateListener;
+import HockeyLive.Client.Listeners.*;
 import HockeyLive.Common.Communication.ClientMessage;
 import HockeyLive.Common.Communication.ClientMessageType;
 import HockeyLive.Common.Constants;
-import HockeyLive.Common.Models.Bet;
-import HockeyLive.Common.Models.Game;
-import HockeyLive.Common.Models.GameInfo;
+import HockeyLive.Common.Models.*;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -40,6 +35,8 @@ public class Client {
     private List<GameListUpdateListener> gameListUpdateListeners;
     private List<BetConfirmationListener> betConfirmationListeners;
     private List<BetUpdateListener> betUpdateListeners;
+    private List<GoalNotificationListener> goalNotificationListeners;
+    private List<PenaltyNotificationListener> penaltyNotificationListeners;
 
     private ClientSocket socket = null;
     private InetAddress localhost = null;
@@ -52,6 +49,8 @@ public class Client {
         gameListUpdateListeners = new ArrayList<>();
         betConfirmationListeners = new ArrayList<>();
         betUpdateListeners = new ArrayList<>();
+        goalNotificationListeners = new ArrayList<>();
+        penaltyNotificationListeners = new ArrayList<>();
         serverAddress = GetLocalhost();
     }
 
@@ -60,6 +59,8 @@ public class Client {
         gameListUpdateListeners = new ArrayList<>();
         betConfirmationListeners = new ArrayList<>();
         betUpdateListeners = new ArrayList<>();
+        goalNotificationListeners = new ArrayList<>();
+        penaltyNotificationListeners = new ArrayList<>();
         serverAddress = address;
     }
 
@@ -141,6 +142,24 @@ public class Client {
             l.IsBetConfirmed(confirmation);
     }
 
+    public void ReceiveGoalNotification(List<Object> goalInfo) {
+        Game game = (Game)goalInfo.get(0);
+        Side side = (Side)goalInfo.get(1);
+        Goal goal = (Goal)goalInfo.get(2);
+
+        for (GoalNotificationListener l : goalNotificationListeners)
+            l.NewGoal(goal, side, game);
+    }
+
+    public void ReceivePenaltyNotification(List<Object> penaltyInfo) {
+        Game game = (Game)penaltyInfo.get(0);
+        Side side = (Side)penaltyInfo.get(1);
+        Penalty penalty = (Penalty)penaltyInfo.get(2);
+
+        for (PenaltyNotificationListener l : penaltyNotificationListeners)
+            l.NewPenalty(penalty, side, game);
+    }
+
     public void AddGameListUpdateListener(GameListUpdateListener listener) {
         gameListUpdateListeners.add(listener);
     }
@@ -155,6 +174,14 @@ public class Client {
 
     public void AddBetUpdateListener(BetUpdateListener listener) {
         betUpdateListeners.add(listener);
+    }
+
+    public void AddGoalNotificationListener(GoalNotificationListener listener) {
+        goalNotificationListeners.add(listener);
+    }
+
+    public void AddPenaltyNotificationListener(PenaltyNotificationListener listener) {
+        penaltyNotificationListeners.add(listener);
     }
 
     public void UnregisterListeners() {

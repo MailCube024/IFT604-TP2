@@ -12,7 +12,8 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".GameInfo.GameInfoActivity" android:label="@string/GameInfoLabel">
+		<activity android:name=".GameInfo.GameInfoActivity" android:label="@string/GameInfoLabel"
+		          android:windowSoftInputMode="stateAlwaysHidden">
 			<meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MatchListActivity"/>
 		</activity>
 		<service android:name=".CommunicationService"/>

@@ -77,6 +77,11 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
         spinnerShowing = true;
     }
 
+    @Override
+    protected void onPause() {
+        if (spinnerShowing) progress.dismiss();
+    }
+
     private void InitializeGameDescription() {
         ((TextView) findViewById(R.id.lblGameInfoTitle)).setText(game.toString());
         ((TextView) findViewById(R.id.lblHostname)).setText(game.getHost());

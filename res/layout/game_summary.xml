@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@drawable/hockeylivebg" android:padding="5dp">
+            android:padding="5dp">
 	<TableLayout
 			android:orientation="vertical"
 			android:layout_width="match_parent"
@@ -96,7 +96,8 @@
 			              android:layout_weight="0.5">
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
-				          android:text="@string/GoalsLabel" android:gravity="center"/>
+				          android:text="@string/GoalsLabel" android:gravity="center"
+				          android:background="@android:color/holo_red_light"/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -110,7 +111,8 @@
 			              android:layout_weight="0.5">
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
-				          android:text="@string/GoalsLabel" android:gravity="center"/>
+				          android:text="@string/GoalsLabel" android:gravity="center"
+				          android:background="@android:color/holo_red_light"/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -131,7 +133,8 @@
 			              android:layout_weight="0.5">
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
-				          android:text="@string/PenaltiesLabel" android:gravity="center"/>
+				          android:text="@string/PenaltiesLabel" android:gravity="center"
+				          android:background="@android:color/holo_red_light"/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -145,7 +148,8 @@
 			              android:layout_weight="0.5">
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
-				          android:text="@string/PenaltiesLabel" android:gravity="center"/>
+				          android:text="@string/PenaltiesLabel" android:gravity="center"
+				          android:background="@android:color/holo_red_light"/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>

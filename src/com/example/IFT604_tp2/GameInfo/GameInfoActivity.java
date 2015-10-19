@@ -77,6 +77,11 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
         spinnerShowing = true;
     }
 
+    @Override
+    protected void onPause() {
+        if (spinnerShowing) progress.dismiss();
+    }
+
     private void InitializeGameDescription() {
         ((TextView) findViewById(R.id.lblGameInfoTitle)).setText(game.toString());
         ((TextView) findViewById(R.id.lblHostname)).setText(game.getHost());
@@ -84,10 +89,10 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
     }
 
     private void InitializeAdapters() {
-        hostPenaltyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        hostGoalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        visitorPenaltyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        visitorGoalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
+        hostPenaltyAdapter = new ArrayAdapter<>(this, R.layout.left_aligned, new ArrayList<>());
+        hostGoalAdapter = new ArrayAdapter<>(this, R.layout.left_aligned, new ArrayList<>());
+        visitorPenaltyAdapter = new ArrayAdapter<>(this, R.layout.right_aligned, new ArrayList<>());
+        visitorGoalAdapter = new ArrayAdapter<>(this, R.layout.right_aligned, new ArrayList<>());
 
         ((ListView) findViewById(R.id.lstHostPenalties)).setAdapter(hostPenaltyAdapter);
         ((ListView) findViewById(R.id.lstHostGoals)).setAdapter(hostGoalAdapter);

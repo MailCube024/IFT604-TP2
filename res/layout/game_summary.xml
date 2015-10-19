@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@drawable/hockeylivebg">
+            android:background="@drawable/hockeylivebg" android:padding="5dp">
 	<TableLayout
 			android:orientation="vertical"
 			android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 		            android:layout_width="fill_parent" android:columnCount="5">
 			<TextView android:layout_width="wrap_content" android:layout_height="match_parent"
 			          android:text="@string/PeriodLabel"
-			          android:layout_column="0" style="@style/Title2Label"/>
+			          android:layout_column="0" style="@style/Title2Label" android:layout_marginRight="5dp"/>
 			<TextView
 					android:layout_width="wrap_content"
 					android:layout_height="match_parent"
@@ -32,7 +32,7 @@
 			<TextView android:layout_width="wrap_content"
 			          android:layout_height="match_parent"
 			          style="@style/Title2Label"
-			          android:text="@string/TimerLabel"
+			          android:text="@string/TimerLabel" android:layout_marginRight="5dp"
 			          android:layout_column="3"/>
 			<TextView android:layout_width="wrap_content"
 			          android:layout_height="match_parent"
@@ -64,7 +64,7 @@
 		<GridLayout android:orientation="horizontal" android:layout_height="wrap_content"
 		            android:layout_width="fill_parent" android:columnCount="5">
 			<TextView android:layout_width="wrap_content" android:layout_height="match_parent"
-			          android:text="@string/HostGoalLabel"
+			          android:text="@string/HostGoalLabel" android:layout_marginRight="5dp"
 			          android:layout_column="0"/>
 			<TextView
 					android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
 
 			<TextView android:layout_width="wrap_content"
 			          android:layout_height="match_parent"
-			          android:text="@string/VisitorGoalLabel"
+			          android:text="@string/VisitorGoalLabel" android:layout_marginRight="5dp"
 			          android:layout_column="3"/>
 			<TextView android:layout_width="wrap_content"
 			          android:layout_height="match_parent"
@@ -89,7 +89,7 @@
 		      android:background="@android:color/darker_gray"/>
 
 		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
-		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="125dp">
 			<LinearLayout android:orientation="vertical"
 			              android:layout_height="match_parent"
 			              android:layout_width="0dp"
@@ -124,7 +124,7 @@
 		      android:background="@android:color/darker_gray"/>
 
 		<LinearLayout android:orientation="horizontal" android:layout_height="wrap_content"
-		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="200sp">
+		              android:layout_width="match_parent" android:weightSum="1" android:minHeight="125dp">
 			<LinearLayout android:orientation="vertical"
 			              android:layout_height="match_parent"
 			              android:layout_width="0dp"
@@ -166,7 +166,7 @@
 
 		<LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
 		              android:layout_height="match_parent"
-					  android:id="@+id/betSection">
+		              android:id="@+id/betSection">
 			<RadioGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
 			            android:orientation="vertical">
 				<RadioButton android:id="@+id/optHost" android:layout_width="wrap_content"
@@ -178,8 +178,16 @@
 				             android:layout_height="match_parent" android:text="@string/VisitorOption"
 				             android:onClick="onRadioButtonClicked"/>
 			</RadioGroup>
-			<Button android:id="@+id/btnBet" android:text="@string/BetButton" android:layout_height="match_parent"
-			        android:layout_width="fill_parent" android:onClick="onBetButtonClicked"/>
+			<TextView android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Amount:"
+			          android:gravity="bottom" android:layout_margin="5dp"/>
+			<EditText
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:inputType="number"
+					android:ems="10"
+					android:id="@+id/txtBetAmount"/>
 		</LinearLayout>
+		<Button android:id="@+id/btnBet" android:text="@string/BetButton" android:layout_height="match_parent"
+		        android:layout_width="fill_parent" android:onClick="onBetButtonClicked"/>
 	</TableLayout>
 </ScrollView>

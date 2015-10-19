@@ -7,9 +7,7 @@ import HockeyLive.Client.Listeners.GameListUpdateListener;
 import HockeyLive.Common.Communication.ClientMessage;
 import HockeyLive.Common.Communication.ClientMessageType;
 import HockeyLive.Common.Constants;
-import HockeyLive.Common.Models.Bet;
-import HockeyLive.Common.Models.Game;
-import HockeyLive.Common.Models.GameInfo;
+import HockeyLive.Common.Models.*;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -139,6 +137,14 @@ public class Client {
     public void ReceiveBetConfirmation(boolean confirmation) {
         for (BetConfirmationListener l : betConfirmationListeners)
             l.IsBetConfirmed(confirmation);
+    }
+
+    public void ReceiveGoalNotification(List<Object> goalInfo) {
+        int test = 1;
+    }
+
+    public void ReceivePenaltyNotification(List<Object> penaltyInfo) {
+        int test = 2;
     }
 
     public void AddGameListUpdateListener(GameListUpdateListener listener) {

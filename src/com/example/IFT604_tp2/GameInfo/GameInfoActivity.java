@@ -39,12 +39,6 @@ public class GameInfoActivity extends Activity {
         currentIntent = getIntent();
         Bundle bundle = currentIntent.getExtras();
 
-        try {
-            ClientSocket socket = new ClientSocket(1010);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         if (bundle != null)
             game = (Game) bundle.getSerializable(IntentKeys.SELECTED_GAME);
         else

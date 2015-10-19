@@ -2,9 +2,7 @@ package HockeyLive.Client.Communication;
 
 import HockeyLive.Common.Communication.ServerMessage;
 import HockeyLive.Common.Communication.ServerMessageType;
-import HockeyLive.Common.Models.Bet;
-import HockeyLive.Common.Models.Game;
-import HockeyLive.Common.Models.GameInfo;
+import HockeyLive.Common.Models.*;
 
 import java.util.List;
 
@@ -59,6 +57,12 @@ public class MessageHandler implements Runnable {
                 break;
             case BetResult:
                 client.ReceiveBet((Bet) data);
+                break;
+            case GoalNotification:
+                client.ReceiveGoalNotification((List<Object>) data);
+                break;
+            case PenaltyNotification:
+                client.ReceivePenaltyNotification((List<Object>) data);
                 break;
         }
     }

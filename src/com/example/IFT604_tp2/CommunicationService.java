@@ -42,7 +42,7 @@ public class CommunicationService extends Service {
             @Override
             public void run() {
                 try {
-                    InetAddress serverAddress = InetAddress.getByName("192.168.0.130");
+                    InetAddress serverAddress = InetAddress.getByName("192.168.2.17");
                     client = new Client(serverAddress);
                     client.Start();
                 } catch (Exception e) {
@@ -102,24 +102,5 @@ public class CommunicationService extends Service {
         });
 
         thread.start();
-
-        //GetGameList();
-    }
-
-    public void GetGameList() {
-        List<Game> listTest = new ArrayList<>();
-        listTest.add(new Game(1, "Montreal", "Ottawa"));
-        listTest.add(new Game(2, "New-York", "Pittsburg"));
-        listTest.add(new Game(3, "Vancouver", "Calgary"));
-        listTest.add(new Game(4, "St-Louis", "San-Jose"));
-        listTest.add(new Game(5, "Tampa-Bay", "Florida"));
-        listTest.add(new Game(6, "Nashville", "Columbus"));
-        listTest.add(new Game(7, "Toronto", "Detroit"));
-        listTest.add(new Game(8, "Edmonton", "Arizona"));
-        listTest.add(new Game(9, "Carolina", "New-York"));
-        listTest.add(new Game(10, "Buffalo", "Chicago"));
-
-        if(activity != null)
-            activity.setGameList(listTest);
     }
 }

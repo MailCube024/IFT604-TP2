@@ -4,6 +4,7 @@ import HockeyLive.Client.Communication.Client;
 import HockeyLive.Client.Listeners.GameListUpdateListener;
 import HockeyLive.Common.Models.Bet;
 import HockeyLive.Common.Models.Game;
+import HockeyLive.Common.Models.GameInfo;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
@@ -20,29 +21,18 @@ import java.util.List;
  */
 public class CommunicationService extends Service {
 
-    public interface Callbacks{
-        void setGameList(List<Game> gameList);
-    }
-
     private final IBinder binder = new CommunicationBinder();
     private Callbacks activity;
-
     private Client client;
-
-    public class CommunicationBinder extends Binder {
-        public CommunicationService getService() {
-            return CommunicationService.this;
-        }
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Thread thread = new Thread(new Runnable(){
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    InetAddress serverAddress = InetAddress.getByName("192.168.0.130");
+                    InetAddress serverAddress = InetAddress.getByName("192.168.56.2");
                     client = new Client(serverAddress);
                     client.Start();
                 } catch (Exception e) {
@@ -72,12 +62,12 @@ public class CommunicationService extends Service {
         return binder;
     }
 
-    public void registerClient(Activity activity){
-        this.activity = (Callbacks)activity;
+    public void registerClient(Activity activity) {
+        this.activity = (Callbacks) activity;
     }
 
-    public void unregisterClient(Activity activity){
-        if(this.activity.equals(activity))
+    public void unregisterClient(Activity activity) {
+        if (this.activity.equals(activity))
             this.activity = null;
     }
 
@@ -90,7 +80,7 @@ public class CommunicationService extends Service {
     }
 
     public void RequestGameList() {
-        Thread thread = new Thread(new Runnable(){
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -119,7 +109,23 @@ public class CommunicationService extends Service {
         listTest.add(new Game(9, "Carolina", "New-York"));
         listTest.add(new Game(10, "Buffalo", "Chicago"));
 
-        if(activity != null)
+        if (activity != null)
             activity.setGameList(listTest);
+    }
+
+    public interface Callbacks {
+        void setGameList(List<Game> gameList);
+
+        void updateGameInfo(GameInfo info);
+
+        void betuUpdate(Bet bet);
+
+        void betConfirmed(boolean state);
+    }
+
+    public class CommunicationBinder extends Binder {
+        public CommunicationService getService() {
+            return CommunicationService.this;
+        }
     }
 }

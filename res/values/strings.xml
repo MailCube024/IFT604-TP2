@@ -12,4 +12,5 @@
     <string name="HostGoalLabel">Host:</string>
     <string name="TimerLabel">Timer:</string>
     <string name="PeriodLabel">Period:</string>
+    <string name="GameInfoLabel">Game Info</string>
 </resources>

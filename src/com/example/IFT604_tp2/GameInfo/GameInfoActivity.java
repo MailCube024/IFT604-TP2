@@ -1,9 +1,7 @@
 package com.example.IFT604_tp2.GameInfo;
 
 import HockeyLive.Client.Communication.ClientSocket;
-import HockeyLive.Common.Models.Game;
-import HockeyLive.Common.Models.Goal;
-import HockeyLive.Common.Models.Penalty;
+import HockeyLive.Common.Models.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import com.example.IFT604_tp2.CommunicationService;
 import com.example.IFT604_tp2.IntentKeys;
 import com.example.IFT604_tp2.R;
 
@@ -22,7 +21,7 @@ import java.util.List;
 /**
  * Created by Michaël on 10/17/2015.
  */
-public class GameInfoActivity extends Activity {
+public class GameInfoActivity extends Activity implements CommunicationService.Callbacks {
     private Intent currentIntent;
     private Game game;
 
@@ -110,6 +109,26 @@ public class GameInfoActivity extends Activity {
     }
 
     public void onBetButtonClicked(View view) {
+
+    }
+
+    @Override
+    public void setGameList(List<Game> gameList) {
+        // Not interested
+    }
+
+    @Override
+    public void updateGameInfo(GameInfo info) {
+
+    }
+
+    @Override
+    public void betuUpdate(Bet bet) {
+
+    }
+
+    @Override
+    public void betConfirmed(boolean state) {
 
     }
 }

@@ -1,7 +1,9 @@
 package com.example.IFT604_tp2;
 
 import HockeyLive.Client.Listeners.GameListUpdateListener;
+import HockeyLive.Common.Models.Bet;
 import HockeyLive.Common.Models.Game;
+import HockeyLive.Common.Models.GameInfo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -66,5 +68,20 @@ public class MatchListActivity extends HockeyActivity implements CommunicationSe
 
         ListView matchList = (ListView) findViewById(R.id.matchList);
         matchList.setAdapter(adapter);
+    }
+
+    @Override
+    public void updateGameInfo(GameInfo info) {
+        //Not implementing callback
+    }
+
+    @Override
+    public void betuUpdate(Bet bet) {
+        //Not implmenting callback
+    }
+
+    @Override
+    public void betConfirmed(boolean state) {
+        //Not implmenting callback
     }
 }

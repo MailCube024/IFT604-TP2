@@ -6,7 +6,9 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Michaël on 10/16/2015.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public class GameInfoRefresher {
     private ScheduledFuture<?> schedule;

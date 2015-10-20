@@ -1,7 +1,9 @@
 package com.example.IFT604_tp2.GameInfo;
 
 /**
- * Created by Michaël on 10/16/2015.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public class GameInfoRefreshTask implements Runnable {
     private final GameInfoActivity activity;

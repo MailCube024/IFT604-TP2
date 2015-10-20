@@ -10,7 +10,9 @@ import android.os.IBinder;
 import com.example.IFT604_tp2.CommunicationService;
 
 /**
- * Created by Benoit on 2015-10-18.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public abstract class HockeyActivity extends Activity {
 

@@ -22,7 +22,9 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Benoit on 2015-10-17.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public class CommunicationService extends Service {
 

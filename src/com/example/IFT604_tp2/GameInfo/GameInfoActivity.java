@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Michaël on 10/17/2015.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public class GameInfoActivity extends HockeyActivity implements CommunicationService.Callbacks {
     private boolean spinnerShowing;

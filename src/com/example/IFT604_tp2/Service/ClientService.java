@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.IBinder;
 
 /**
- * Created by Michaël on 10/18/2015.
+ * Michael Beaulieu         13048132
+ * Benoit Jeunehomme        13055392
+ * Bruno-Pier Touchette     13045732
  */
 public class ClientService extends Service {
     @Override

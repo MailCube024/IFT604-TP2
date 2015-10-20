@@ -2,6 +2,7 @@ package com.example.IFT604_tp2;
 
 import HockeyLive.Client.Communication.Client;
 import HockeyLive.Client.Listeners.*;
+import HockeyLive.Common.Constants;
 import HockeyLive.Common.Models.*;
 import android.app.Activity;
 import android.app.Service;
@@ -40,7 +41,7 @@ public class CommunicationService extends Service {
             @Override
             public void run() {
                 try {
-                    InetAddress serverAddress = InetAddress.getByName("192.168.56.2");
+                    InetAddress serverAddress = InetAddress.getByName(Constants.SERVER_IP);
                     client = new Client(serverAddress);
                     client.Start();
 

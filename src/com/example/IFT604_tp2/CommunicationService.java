@@ -1,14 +1,10 @@
 package com.example.IFT604_tp2;
 
 import HockeyLive.Client.Communication.Client;
-import HockeyLive.Client.Listeners.GameInfoUpdateListener;
-import HockeyLive.Client.Listeners.GameListUpdateListener;
-import HockeyLive.Client.Listeners.GoalNotificationListener;
-import HockeyLive.Client.Listeners.PenaltyNotificationListener;
+import HockeyLive.Client.Listeners.*;
 import HockeyLive.Common.Models.*;
 import android.app.Activity;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Handler;
@@ -18,7 +14,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.net.InetAddress;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Benoit on 2015-10-17.
@@ -29,6 +29,10 @@ public class CommunicationService extends Service {
     private Callbacks activity;
     private Client client;
 
+    private HashMap<Integer, Double> betGains = new HashMap<>();
+    private List<Bet> betsReceived = new ArrayList<>();
+    private double totalAmountGained = 0.0;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -36,14 +40,14 @@ public class CommunicationService extends Service {
             @Override
             public void run() {
                 try {
-                    InetAddress serverAddress = InetAddress.getByName("192.168.2.17");
+                    InetAddress serverAddress = InetAddress.getByName("192.168.56.2");
                     client = new Client(serverAddress);
                     client.Start();
 
                     PenaltyNotificationListener penaltyListener = new PenaltyNotificationListener() {
                         @Override
                         public void NewPenalty(Penalty penalty, Side side, Game game) {
-                            if(activity == null) {
+                            if (activity == null) {
                                 ShowPenalty(penalty, side, game);
                             }
                         }
@@ -52,7 +56,7 @@ public class CommunicationService extends Service {
                     GoalNotificationListener goalListener = new GoalNotificationListener() {
                         @Override
                         public void NewGoal(Goal goal, Side side, Game game) {
-                            if(activity == null) {
+                            if (activity == null) {
                                 ShowGoal(goal, side, game);
                             }
                         }
@@ -60,6 +64,27 @@ public class CommunicationService extends Service {
 
                     client.AddPenaltyNotificationListener(penaltyListener);
                     client.AddGoalNotificationListener(goalListener);
+
+                    client.AddBetConfirmationListener(new BetConfirmationListener() {
+                        @Override
+                        public void IsBetConfirmed(boolean betConfirmation) {
+                            ShowBetReception(betConfirmation);
+                        }
+                    });
+
+                    client.AddBetUpdateListener(new BetUpdateListener() {
+                        @Override
+                        public void BetUpdate(Bet bet) {
+                            if (!betsReceived.contains(bet)) {
+                                betsReceived.add(bet);
+                                Double oldGain = betGains.containsKey(bet.getGameID()) ? betGains.get(bet.getGameID()) : 0.0;
+                                totalAmountGained += oldGain + bet.getAmountGained();
+                                betGains.put(bet.getGameID(), oldGain + bet.getAmountGained());
+                                ShowBetResultForGame(bet);
+                                ShowTotalBetGains(totalAmountGained);
+                            }
+                        }
+                    });
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -67,6 +92,25 @@ public class CommunicationService extends Service {
         });
 
         thread.start();
+    }
+
+    private void ShowTotalBetGains(double totalAmountGained) {
+        String message = String.format("Total gain up till now :%s",
+                NumberFormat.getCurrencyInstance(new Locale("en", "US")).format(totalAmountGained));
+        ShowToast(message);
+    }
+
+    private void ShowBetResultForGame(Bet bet) {
+        String message = String.format("Gain for bet on %s : %s", bet.getBetOn(),
+                NumberFormat.getCurrencyInstance(new Locale("en", "US")).format(bet.getAmountGained()));
+        ShowToast(message);
+    }
+
+    private void ShowBetReception(boolean betConfirmation) {
+        if (betConfirmation)
+            ShowToast("Bet received - good luck!");
+        else
+            ShowToast("Bet was not registered");
     }
 
     @Override
@@ -105,7 +149,18 @@ public class CommunicationService extends Service {
     }
 
     public void SendBet(Bet bet) {
-        //client.SendBet(bet);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    client.SendBet(bet);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
     }
 
     public void RequestGameList() {
@@ -121,10 +176,6 @@ public class CommunicationService extends Service {
         });
 
         thread.start();
-    }
-
-    public GameInfo GetGameInfo() {
-        return new GameInfo(1, 2);
     }
 
     public void RequestGameInfo(int gameID) {
@@ -165,7 +216,7 @@ public class CommunicationService extends Service {
 
             @Override
             public void run() {
-                Toast.makeText(CommunicationService.this.getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+                Toast.makeText(CommunicationService.this.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -174,10 +225,6 @@ public class CommunicationService extends Service {
         void setGameList(List<Game> gameList);
 
         void updateGameInfo(GameInfo info);
-
-        void betUpdate(Bet bet);
-
-        void betConfirmed(boolean state);
     }
 
     public class CommunicationBinder extends Binder {

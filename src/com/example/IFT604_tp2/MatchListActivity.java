@@ -1,7 +1,6 @@
 package com.example.IFT604_tp2;
 
 import HockeyLive.Client.Listeners.GameListUpdateListener;
-import HockeyLive.Common.Models.Bet;
 import HockeyLive.Common.Models.Game;
 import HockeyLive.Common.Models.GameInfo;
 import android.content.Intent;
@@ -75,14 +74,4 @@ public class MatchListActivity extends HockeyActivity implements CommunicationSe
         //Not implementing callback
     }
 
-    @Override
-    public void betUpdate(Bet bet) {
-
-    }
-
-
-    @Override
-    public void betConfirmed(boolean state) {
-        //Not implmenting callback
-    }
 }

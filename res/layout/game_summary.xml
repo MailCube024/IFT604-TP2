@@ -12,7 +12,7 @@
 		          android:layout_width="match_parent"
 		          android:layout_height="wrap_content"
 		          android:id="@+id/lblGameInfoTitle"
-		          android:text="Chicago vs. Montreal" android:background="@android:color/holo_red_dark"
+		          android:text="Chicago vs. Montreal"
 				/>
 		<View android:layout_height="1dp" android:layout_width="match_parent"
 		      android:background="@android:color/darker_gray"/>
@@ -97,7 +97,7 @@
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
 				          android:text="@string/GoalsLabel" android:gravity="center"
-				          android:background="@android:color/holo_red_dark"/>
+						/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -112,7 +112,7 @@
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
 				          android:text="@string/GoalsLabel" android:gravity="center"
-				          android:background="@android:color/holo_red_dark"/>
+						/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -134,7 +134,7 @@
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
 				          android:text="@string/PenaltiesLabel" android:gravity="center"
-				          android:background="@android:color/holo_red_dark"/>
+						/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -149,7 +149,7 @@
 				<TextView android:layout_width="fill_parent"
 				          android:layout_height="wrap_content"
 				          android:text="@string/PenaltiesLabel" android:gravity="center"
-				          android:background="@android:color/holo_red_dark"/>
+						/>
 
 				<View android:layout_height="1dp" android:layout_width="match_parent"
 				      android:background="@android:color/darker_gray"/>
@@ -164,7 +164,7 @@
 
 		<Button android:id="@+id/btnRefresh" android:text="@string/Refresh" android:layout_height="wrap_content"
 		        android:layout_width="match_parent" android:onClick="onRefreshButtonClicked"
-		        android:background="@android:color/holo_red_dark"/>
+				/>
 
 		<View android:layout_height="1dp" android:layout_width="match_parent"
 		      android:background="@android:color/darker_gray"/>
@@ -194,6 +194,6 @@
 		</LinearLayout>
 		<Button android:id="@+id/btnBet" android:text="@string/BetButton" android:layout_height="match_parent"
 		        android:layout_width="fill_parent" android:onClick="onBetButtonClicked"
-		        android:background="@android:color/holo_red_dark"/>
+				/>
 	</TableLayout>
 </ScrollView>

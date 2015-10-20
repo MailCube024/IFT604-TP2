@@ -1,6 +1,4 @@
-package HockeyLive.Client.Refresh;
-
-import HockeyLive.Client.Communication.Client;
+package com.example.IFT604_tp2.GameInfo;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,25 +11,19 @@ import java.util.concurrent.TimeUnit;
 public class GameInfoRefresher {
     private ScheduledFuture<?> schedule;
     private ScheduledExecutorService executor;
-    private int selectedGameID = 0;
     private int interval;
-    private Client client;
+    private GameInfoActivity activity;
 
-    public GameInfoRefresher(int minutes, Client client) {
-        this.client = client;
+    public GameInfoRefresher(int minutes, GameInfoActivity activity) {
+        this.activity = activity;
         interval = minutes;
         executor = Executors.newSingleThreadScheduledExecutor();
-        schedule = executor.scheduleWithFixedDelay(new GameInfoRefreshTask(client, selectedGameID), interval, interval, TimeUnit.MINUTES);
-    }
-
-    public void UpdateSelectedGame(int gameID) {
-        selectedGameID = gameID;
-        Reset();
+        schedule = executor.scheduleWithFixedDelay(new GameInfoRefreshTask(activity), interval, interval, TimeUnit.MINUTES);
     }
 
     public void Reset() {
         schedule.cancel(true);
-        schedule = executor.scheduleWithFixedDelay(new GameInfoRefreshTask(client, selectedGameID), interval, interval, TimeUnit.MINUTES);
+        schedule = executor.scheduleWithFixedDelay(new GameInfoRefreshTask(activity), interval, interval, TimeUnit.MINUTES);
     }
 
     public void Stop() {

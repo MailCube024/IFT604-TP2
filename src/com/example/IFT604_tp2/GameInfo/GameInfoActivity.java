@@ -27,10 +27,15 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
     private Intent currentIntent;
     private Game game;
 
+    private String selectedTeamToBet;
+
     private ArrayAdapter<Penalty> hostPenaltyAdapter;
     private ArrayAdapter<Penalty> visitorPenaltyAdapter;
     private ArrayAdapter<Goal> hostGoalAdapter;
     private ArrayAdapter<Goal> visitorGoalAdapter;
+    private GameInfoRefresher refresher;
+
+    private List<Bet> betsReceived;
 
     //@Override
     protected void onServiceConnected() {
@@ -69,7 +74,16 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
 
         InitializeGameDescription();
         InitializeAdapters();
+        selectedTeamToBet = game.getHost();
 
+        refresher = new GameInfoRefresher(2, this);
+
+        betsReceived = new ArrayList<>();
+
+        ShowProgressDialog();
+    }
+
+    private void ShowProgressDialog() {
         progress = new ProgressDialog(this);
         progress.setTitle("Loading game info");
         progress.setMessage("Please wait...");
@@ -79,7 +93,9 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
 
     @Override
     protected void onPause() {
+        super.onPause();
         if (spinnerShowing) progress.dismiss();
+        if (refresher != null) refresher.Stop();
     }
 
     private void InitializeGameDescription() {
@@ -123,22 +139,24 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
             switch (view.getId()) {
                 case R.id.optHost:
                     if (checked)
-                        //TODO: Set bet to host
-                        break;
+                        selectedTeamToBet = game.getHost();
+                    break;
                 case R.id.optVisitor:
                     if (checked)
-                        //TODO: Set bet to visitor
-                        break;
+                        selectedTeamToBet = game.getVisitor();
+                    break;
             }
         }
     }
 
     public void onRefreshButtonClicked(View view) {
         boundService.RequestGameInfo(game.getGameID());
+        refresher.Reset();
     }
 
     public void onBetButtonClicked(View view) {
-
+        int betAmount = Integer.parseInt(((TextView) findViewById(R.id.txtBetAmount)).getText().toString());
+        boundService.SendBet(new Bet(betAmount, selectedTeamToBet, game.getGameID()));
     }
 
     @Override
@@ -158,13 +176,8 @@ public class GameInfoActivity extends HockeyActivity implements CommunicationSer
         UpdatePenaltyList(info.getHostPenalties(), info.getVisitorPenalties());
     }
 
-    @Override
-    public void betUpdate(Bet bet) {
-        //TODO: Add implementation
-    }
-
-    @Override
-    public void betConfirmed(boolean state) {
-        //TODO: Add implementation
+    public void invokeGameInfoRefresh() {
+        if (game.getGameID() == 0) return;
+        boundService.RequestGameInfo(game.getGameID());
     }
 }
